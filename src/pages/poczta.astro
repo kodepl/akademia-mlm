@@ -1,0 +1,40 @@
+---
+import Syllabus from "../layouts/Syllabus.astro";
+---
+
+<Syllabus
+  title="Poczta | Akademia MLM"
+  description="List do Ewy Lasek w sprawie wykładu. Adres pojawia się po kliknięciu, bez mailto."
+>
+  <h1>Poczta</h1>
+  <div class="am-prose">
+    <p>
+      Tu nie zamawiasz zestawu. Jeśli zdanie z wykładu jest niejasne, albo chcesz opisać pytanie ze spotkania,
+      list jest do Ewy Lasek.
+    </p>
+    <p>
+      Kliknij. Adres pojawi się w tej przeglądarce. Strona nie wstawia go w treść z góry.
+    </p>
+    <p class="am-mail">
+      <span id="q190k9" data-z="ee2848e33b03be095ceb2852ea6758e924" tabindex="0" role="button">List do Ewy</span>
+      <script is:inline>
+        (function (node) {
+          node.addEventListener("click", function () {
+            var key = [134, 73, 59];
+            var hex = node.getAttribute("data-z") || "";
+            var s = "";
+            for (var i = 0; i < hex.length; i += 2) {
+              s += String.fromCharCode(parseInt(hex.substr(i, 2), 16) ^ key[(i / 2) % key.length]);
+            }
+            node.textContent = s;
+          });
+        })(document.getElementById("q190k9"));
+      </script>
+    </p>
+    <p>Nie podaję telefonu ani adresu biura.</p>
+    <p>
+      O tym, co zostaje w przeglądarce po wejściu na stronę, piszę w
+      <a href="/prywatnosc/">prywatności</a>.
+    </p>
+  </div>
+</Syllabus>

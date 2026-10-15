@@ -1,0 +1,99 @@
+---
+import type { Lecture } from "../../lib/lectures";
+import Syllabus from "../../layouts/Syllabus.astro";
+import { formatDate, lectures } from "../../lib/lectures";
+
+export async function getStaticPaths() {
+  const posts = await lectures();
+  return posts.map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      prev: posts[index - 1] ?? null,
+      next: posts[index + 1] ?? null,
+    },
+  }));
+}
+
+interface Props {
+  post: Lecture;
+  prev: Lecture | null;
+  next: Lecture | null;
+}
+
+const { post, prev, next } = Astro.props;
+const { Content } = await post.render();
+const published = formatDate(post.data.pubDate);
+const pageUrl = `https://www.akademiamlm.pl/wyklad/${post.slug}/`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.title,
+  description: post.data.description,
+  image: [post.data.image],
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: post.data.pubDate.toISOString(),
+  inLanguage: "pl-PL",
+  articleSection: post.data.category,
+  keywords: post.data.tags.join(", "),
+  author: {
+    "@type": "Person",
+    name: post.data.author,
+    description: post.data.authorBio,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Akademia MLM",
+    url: "https://www.akademiamlm.pl/",
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": pageUrl,
+  },
+};
+---
+
+<Syllabus title={`${post.data.title} | Akademia MLM`} description={post.data.description} jsonLd={jsonLd}>
+  <article class="am-lecture">
+    <header class="am-head">
+      <div>
+        <p class="am-numer">{post.data.numer}</p>
+        <h1>{post.data.title}</h1>
+        <p class="am-lead">{post.data.description}</p>
+        <p class="am-meta">{post.data.category}. Czytanie: {post.data.readingTime}.</p>
+      </div>
+      <figure class="am-figure">
+        <img src={post.data.image} alt={post.data.imageCaption} width="480" height="320" />
+        <figcaption>{post.data.imageCaption}</figcaption>
+      </figure>
+    </header>
+    <div class="am-prose">
+      <Content />
+    </div>
+    <p class="am-colophon">{published}. {post.data.author}. {post.data.authorBio}</p>
+    <nav class="am-pager" aria-label="Sąsiednie wykłady">
+      {
+        prev && (
+          <a href={`/wyklad/${prev.slug}/`}>
+            <span class="am-pager-label">Poprzedni wykład</span>
+            <span>
+              <span class="am-numer">{prev.data.numer}</span>{" "}
+              <span class="am-toc-title">{prev.data.title}</span>
+            </span>
+          </a>
+        )
+      }
+      {
+        next && (
+          <a href={`/wyklad/${next.slug}/`}>
+            <span class="am-pager-label">Następny wykład</span>
+            <span>
+              <span class="am-numer">{next.data.numer}</span>{" "}
+              <span class="am-toc-title">{next.data.title}</span>
+            </span>
+          </a>
+        )
+      }
+    </nav>
+  </article>
+</Syllabus>

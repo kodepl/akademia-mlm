@@ -1,0 +1,17 @@
+---
+import Spis from "../components/Spis.astro";
+import Syllabus from "../layouts/Syllabus.astro";
+import { lectures } from "../lib/lectures";
+
+const posts = await lectures();
+---
+
+<Syllabus
+  title="Akademia MLM"
+  description="Nie ma tu zestawu startowego ani obietnicy wypłaty. Dziesięć wykładów o czytaniu planu wynagrodzeń."
+>
+  <h1>Akademia MLM</h1>
+  <p class="am-absent">Nie ma tu zestawu startowego ani obietnicy wypłaty.</p>
+  <h2>Spis</h2>
+  <Spis posts={posts} />
+</Syllabus>

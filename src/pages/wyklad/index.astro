@@ -1,0 +1,16 @@
+---
+import Spis from "../../components/Spis.astro";
+import Syllabus from "../../layouts/Syllabus.astro";
+import { lectures } from "../../lib/lectures";
+
+const posts = await lectures();
+---
+
+<Syllabus
+  title="Wykłady | Akademia MLM"
+  description="Dziesięć wykładów, od 01 do 10. Numer jest kolejnością kursu o czytaniu planu wynagrodzeń."
+>
+  <h1>Wykłady</h1>
+  <p class="am-lead">Dziesięć wykładów, od 01 do 10. Numer jest kolejnością kursu.</p>
+  <Spis posts={posts} />
+</Syllabus>

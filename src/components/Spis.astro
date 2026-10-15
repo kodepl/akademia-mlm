@@ -1,0 +1,23 @@
+---
+import type { Lecture } from "../lib/lectures";
+
+interface Props {
+  posts: Lecture[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ol class="am-toc">
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/wyklad/${post.slug}/`}>
+          <span class="am-numer">{post.data.numer}</span>
+          <span class="am-toc-title">{post.data.title}</span>
+          <span class="am-time">{post.data.readingTime}</span>
+        </a>
+      </li>
+    ))
+  }
+</ol>
