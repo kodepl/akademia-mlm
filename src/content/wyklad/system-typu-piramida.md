@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Prawo"
 tags: ["prawo", "piramida", "sprzedaż bezpośrednia"]
 readingTime: "4 min"
-image: "https://images.unsplash.com/photo-1434030216411?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: sala i zeszyt na ławce."
 numer: "03"
 ---

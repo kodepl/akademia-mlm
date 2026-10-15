@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Wyjście"
 tags: ["rezygnacja", "zwrot towaru", "wyjście"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1512820790803?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: otwarta książka."
 numer: "09"
 ---

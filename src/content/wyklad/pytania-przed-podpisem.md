@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Spotkanie"
 tags: ["spotkanie", "podpis", "pytania"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1481627834876?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: książki na stole przed rozmową."
 numer: "04"
 ---

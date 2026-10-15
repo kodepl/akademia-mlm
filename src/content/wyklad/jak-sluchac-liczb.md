@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Liczby"
 tags: ["liczby", "slajd", "przykład"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1461360370896?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: tablica i kreda."
 numer: "08"
 ---

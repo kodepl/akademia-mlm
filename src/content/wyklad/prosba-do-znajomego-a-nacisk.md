@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Ludzie"
 tags: ["znajomi", "nacisk", "odmowa"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1524995997946?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: stos książek przy lampie."
 numer: "05"
 ---

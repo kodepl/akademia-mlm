@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Plan"
 tags: ["sklep", "plan wynagrodzeń", "MLM"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1456327102063?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: otwarty zeszyt na stole."
 numer: "01"
 ---

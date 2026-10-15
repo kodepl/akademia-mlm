@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Towar"
 tags: ["towar", "cena", "zwrot"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1497366811353?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: puste biurko i krzesło."
 numer: "06"
 ---

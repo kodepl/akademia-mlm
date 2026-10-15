@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Słownik"
 tags: ["słownik", "downline", "marża", "punkt"]
 readingTime: "4 min"
-image: "https://images.unsplash.com/photo-1524758631624?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: krzesło przy prostym stole."
 numer: "10"
 ---

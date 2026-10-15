@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Umowa"
 tags: ["regulamin", "rezygnacja", "umowa"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1486312338219?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: laptop i kartka z notatką."
 numer: "07"
 ---

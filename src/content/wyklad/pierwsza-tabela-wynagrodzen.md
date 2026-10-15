@@ -7,7 +7,7 @@ authorBio: "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestaw�
 category: "Plan"
 tags: ["tabela", "prowizja", "kolumna"]
 readingTime: "3 min"
-image: "https://images.unsplash.com/photo-1516387938699?auto=format&fit=crop&w=1600&q=80"
+image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1600&q=80"
 imageCaption: "Motyw z Unsplash: kartki rozłożone jak tabela."
 numer: "02"
 ---
