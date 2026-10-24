@@ -13,7 +13,7 @@ const wyklad = defineCollection({
     readingTime: z.string(),
     image: z.string(),
     imageCaption: z.string(),
-    numer: z.string().regex(/^(0[1-9]|1[0-3])$/),
+    numer: z.string().regex(/^(0[1-9]|1[0-9]|20)$/),
   }),
 });
 
