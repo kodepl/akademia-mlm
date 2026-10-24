@@ -10,7 +10,6 @@ category: "Spotkanie"
 tags: ["ankieta", "głosowanie", "decyzja"]
 readingTime: "5 min"
 image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&h=900&q=80"
-imageCaption: "Sala przed prezentacją, motyw z Unsplash."
 ---
 
 ## Pytanie do grupy przed spotkaniem
