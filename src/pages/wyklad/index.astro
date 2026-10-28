@@ -4,13 +4,26 @@ import Syllabus from "../../layouts/Syllabus.astro";
 import { lectures } from "../../lib/lectures";
 
 const posts = await lectures();
+const core = posts.filter((p) => Number(p.data.numer) <= 10);
+const extras = posts.filter((p) => Number(p.data.numer) > 10);
 ---
 
 <Syllabus
   title="Wykłady | Akademia MLM"
-  description="Dziesięć wykładów, od 01 do 10. Numer jest kolejnością kursu o czytaniu planu wynagrodzeń."
+  description="Kurs główny 01-10 o czytaniu planu wynagrodzeń oraz dodatki z kolejnymi numerami."
 >
   <h1>Wykłady</h1>
-  <p class="am-lead">Dziesięć wykładów, od 01 do 10. Numer jest kolejnością kursu.</p>
-  <Spis posts={posts} />
+  <p class="am-lead">Numer jest kolejnością czytania, nie rankingiem zarobków.</p>
+
+  <p class="am-section-label">Kurs główny</p>
+  <h2>01-10</h2>
+  <Spis posts={core} />
+
+  {extras.length > 0 && (
+    <>
+      <p class="am-section-label">Dodatki</p>
+      <h2>Kolejne numery</h2>
+      <Spis posts={extras} />
+    </>
+  )}
 </Syllabus>

@@ -4,14 +4,45 @@ import Syllabus from "../layouts/Syllabus.astro";
 import { lectures } from "../lib/lectures";
 
 const posts = await lectures();
+const core = posts.filter((p) => Number(p.data.numer) <= 10);
+const extras = posts.filter((p) => Number(p.data.numer) > 10);
 ---
 
 <Syllabus
   title="Akademia MLM"
-  description="Nie ma tu zestawu startowego ani obietnicy wypłaty. Dziesięć wykładów o czytaniu planu wynagrodzeń."
+  description="Nie ma tu zestawu startowego ani obietnicy wypłaty. Wykłady o czytaniu planu wynagrodzeń przed podpisem."
 >
-  <h1>Akademia MLM</h1>
-  <p class="am-absent">Nie ma tu zestawu startowego ani obietnicy wypłaty.</p>
-  <h2>Spis</h2>
-  <Spis posts={posts} />
+  <div class="am-hero">
+    <p class="am-kicker">Szkoła czytania planu</p>
+    <h1>Akademia MLM</h1>
+    <p class="am-absent">Nie ma tu zestawu startowego ani obietnicy wypłaty.</p>
+    <p>
+      Uczysz się rozdzielić sklep od tabeli, przeczytać przepis o systemie typu piramida i zabrać pytania na spotkanie.
+      Prowadzi Ewa Lasek. Nie werbuje do struktury.
+    </p>
+  </div>
+
+  <div class="am-tools" aria-label="Narzędzia">
+    <a class="am-tool" href="/lista/">
+      <strong>Lista przed spotkaniem</strong>
+      <span>Checklist pytań i kratki do zaznaczenia przed podpisem.</span>
+    </a>
+    <a class="am-tool" href="/slowa/">
+      <strong>Słowa ze slajdu</strong>
+      <span>Krótki glosariusz downline, marży, punktu i sąsiadów.</span>
+    </a>
+  </div>
+
+  <p class="am-section-label">Kurs główny</p>
+  <h2>Wykłady 01-10</h2>
+  <Spis posts={core} />
+
+  {extras.length > 0 && (
+    <>
+      <p class="am-section-label">Dodatki</p>
+      <h2>Kolejne numery</h2>
+      <p class="am-absent">Materiały uzupełniające. Nadal w archiwum i mapie strony.</p>
+      <Spis posts={extras} />
+    </>
+  )}
 </Syllabus>

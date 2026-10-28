@@ -1,0 +1,114 @@
+---
+import Syllabus from "../layouts/Syllabus.astro";
+
+const groups = [
+  {
+    title: "Zanim wejdziesz na salę",
+    items: [
+      "Wiem, że mogę wyjść bez podpisu i bez pakietu.",
+      "Mam kartkę z dwiema kolumnami: sklep / tabela.",
+      "Nie dam dziś numeru znajomego „na próbę”.",
+      "Mam zdanie wyjścia: zabieram plan do domu i odezwę się po przeczytaniu.",
+    ],
+  },
+  {
+    title: "Przy tabeli wynagrodzeń",
+    items: [
+      "Potrafię wskazać kolumnę za towar sprzedany poza siecią.",
+      "Potrafię wskazać wiersz zależny od nowego wpisu.",
+      "Wiem, co zostaje z wypłaty, gdy przez trzy miesiące nikt nowy nie wchodzi.",
+      "Dostałem plan na piśmie albo zrzut, który mogę zabrać.",
+    ],
+  },
+  {
+    title: "Przed długopisem",
+    items: [
+      "Wiem, co podpisuję: zakup, wpis, czy zgodę na kolejne paczki.",
+      "Znam pełną nazwę drugiej strony umowy, nie tylko imię zapraszającego.",
+      "Przeczytałem akapit o rezygnacji i zwrocie.",
+      "Odpowiedź „zaufaj” nie zastąpiła żadnej kratki z tabeli.",
+    ],
+  },
+];
+---
+
+<Syllabus
+  title="Lista przed spotkaniem | Akademia MLM"
+  description="Checklist pytań i kratki przed podpisem planu wynagrodzeń. Bez obietnicy wypłaty."
+>
+  <p class="am-kicker">Narzędzie</p>
+  <h1>Lista przed spotkaniem</h1>
+  <p class="am-lead">
+    Zaznacz to, co już masz. Skopiuj braki na kartkę. Lista nie jest zachętą do wejścia do struktury.
+  </p>
+
+  <div class="am-actions">
+    <button type="button" id="am-check-all">Zaznacz wszystkie</button>
+    <button type="button" id="am-clear">Wyczyść</button>
+    <button type="button" id="am-copy">Kopiuj zaznaczone</button>
+  </div>
+  <p class="am-status" id="am-status" aria-live="polite"></p>
+
+  <form id="am-list">
+    {
+      groups.map((group, gi) => (
+        <section>
+          <h2>{group.title}</h2>
+          <ul class="am-check">
+            {group.items.map((item, ii) => (
+              <li>
+                <label>
+                  <input type="checkbox" name={`c-${gi}-${ii}`} value={item} />
+                  <span>{item}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </form>
+
+  <div class="am-prose">
+    <p>
+      Po liście wróć do wykładu
+      <a href="/wyklad/pytania-przed-podpisem/">04. Pytania przed podpisem</a>
+      albo do
+      <a href="/wyklad/system-typu-piramida/">03. System typu piramida</a>.
+    </p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var form = document.getElementById("am-list");
+      var status = document.getElementById("am-status");
+      function boxes() {
+        return Array.prototype.slice.call(form.querySelectorAll('input[type="checkbox"]'));
+      }
+      document.getElementById("am-check-all").addEventListener("click", function () {
+        boxes().forEach(function (b) { b.checked = true; });
+      });
+      document.getElementById("am-clear").addEventListener("click", function () {
+        boxes().forEach(function (b) { b.checked = false; });
+        status.textContent = "";
+      });
+      document.getElementById("am-copy").addEventListener("click", function () {
+        var lines = boxes().filter(function (b) { return b.checked; }).map(function (b) { return "- " + b.value; });
+        if (!lines.length) {
+          status.textContent = "Nic nie zaznaczono.";
+          return;
+        }
+        var text = "Lista przed spotkaniem (Akademia MLM)\n\n" + lines.join("\n");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            status.textContent = "Skopiowano " + lines.length + " punktów.";
+          }).catch(function () {
+            status.textContent = "Nie udało się skopiować.";
+          });
+        } else {
+          status.textContent = "Schowek niedostępny.";
+        }
+      });
+    })();
+  </script>
+</Syllabus>

@@ -13,14 +13,30 @@ const origin = "https://www.akademiamlm.pl";
 const canonical = new URL(path, origin).href;
 const links = [
   { href: "/wyklad/", label: "Wykłady" },
+  { href: "/lista/", label: "Lista" },
+  { href: "/slowa/", label: "Słowa" },
   { href: "/szkola/", label: "O szkole" },
   { href: "/poczta/", label: "Poczta" },
 ];
 
 function current(href: string) {
   if (href === "/wyklad/") return path.startsWith("/wyklad");
-  return path === href;
+  return path === href || path.startsWith(href);
 }
+
+const siteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Akademia MLM",
+  url: origin + "/",
+  description: "Szkoła czytania planów wynagrodzeń. Bez zestawu startowego i bez obietnicy wypłaty.",
+  inLanguage: "pl-PL",
+  publisher: {
+    "@type": "Organization",
+    name: "Akademia MLM",
+    url: origin + "/",
+  },
+};
 ---
 
 <html lang="pl">
@@ -30,13 +46,20 @@ function current(href: string) {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index,follow" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Literata:opsz,wght@7..72,600;7..72,650;7..72,700&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json" set:html={JSON.stringify(siteLd).replace(/</g, "\\u003c")} />
     {
       jsonLd && (
         <script
@@ -65,8 +88,14 @@ function current(href: string) {
         <slot />
       </main>
       <footer class="am-foot">
-        <p>Akademia MLM. Ewa Lasek. To nie jest firma sprzedażowa.</p>
-        <p><a href="/prywatnosc/">Prywatność</a></p>
+        <p>Akademia MLM. Ewa Lasek. To nie jest firma sprzedażowa i nie oferuje zestawów startowych.</p>
+        <p>
+          <a href="/lista/">Lista przed spotkaniem</a>
+          {" · "}
+          <a href="/slowa/">Słowa ze slajdu</a>
+          {" · "}
+          <a href="/prywatnosc/">Prywatność</a>
+        </p>
       </footer>
     </div>
     <script defer src="https://umami-pink-phi.vercel.app/script.js" data-website-id="d2f29973-4534-4013-af20-2d24869069c7" data-domains="akademiamlm.pl,www.akademiamlm.pl"></script>

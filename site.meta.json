@@ -1,0 +1,11 @@
+{
+  "name": "Akademia MLM",
+  "domain": "akademiamlm.pl",
+  "category": "Edukacja",
+  "githubRepo": "kodepl/akademia-mlm",
+  "postsPath": "src/content/wyklad",
+  "publicPath": "/wyklad",
+  "authorName": "Ewa Lasek",
+  "authorBio": "Tłumaczy plany wynagrodzeń zwykłym zdaniem. Nie sprzedaje zestawów startowych.",
+  "indexNowKey": "4e9c489ec82c3b88e225c28411d83764"
+}

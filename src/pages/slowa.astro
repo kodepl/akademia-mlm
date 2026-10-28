@@ -1,0 +1,91 @@
+---
+import Syllabus from "../layouts/Syllabus.astro";
+
+const words = [
+  {
+    term: "Downline",
+    def: "Osoby wpisane pod daną osobą w tabeli. Słowo nie mówi, czy pieniądz z tej grupy pochodzi ze sprzedaży towaru, czy z kolejnych wpisów.",
+  },
+  {
+    term: "Marża",
+    def: "Różnica między ceną a kosztem. Marża od sztuki dla klienta spoza sieci to rozmowa o sklepie. Marża od pakietu osoby wchodzącej to rozmowa o wpisie.",
+  },
+  {
+    term: "Punkt",
+    def: "Umowna jednostka planu. Nie jest złotówką, dopóki ktoś nie pokaże przelicznika. Pytaj osobno o punkty za sztukę, za wpis i za zakup własny.",
+  },
+  {
+    term: "Obrót",
+    def: "Suma, często zakupów w strukturze. Nie jest tym, co zostaje w kieszeni. Odpytaj okres, mianownik i własne zakupy.",
+  },
+  {
+    term: "Sponsor",
+    def: "Osoba, która wpisała Cię do tabeli. Tytuł nie czyni jej opiekunem portfela. Pytaj, czy dostaje część od Twojego wpisu bez sprzedaży na zewnątrz.",
+  },
+  {
+    term: "Poziom / ranga",
+    def: "Etykieta w tabeli. Ważniejszy jest warunek otwarcia i utrzymania: ludzie, sprzedaż, czy mieszanka.",
+  },
+  {
+    term: "Pakiet startowy",
+    def: "Zestaw, który często łączy towar z wejściem do planu. Rozdziel cenę rzeczy od ceny miejsca w strukturze.",
+  },
+  {
+    term: "System typu piramida",
+    def: "W polskim prawie: korzyść uzależniona przede wszystkim od wprowadzania kolejnych osób, a nie od sprzedaży lub zużycia produktów.",
+  },
+];
+---
+
+<Syllabus
+  title="Słowa ze slajdu | Akademia MLM"
+  description="Glosariusz downline, marży, punktu i sąsiednich haseł ze slajdu planu wynagrodzeń."
+>
+  <p class="am-kicker">Narzędzie</p>
+  <h1>Słowa ze slajdu</h1>
+  <p class="am-lead">
+    Krótkie definicje do powtórzenia własnym zdaniem. Pełniejszy wykład:
+    <a href="/wyklad/slownik-bez-zargonu/">10. Słownik bez żargonu</a>.
+  </p>
+
+  <label>
+    Szukaj hasła
+    <input
+      id="am-word-q"
+      type="search"
+      placeholder="np. downline, punkt, piramida"
+      style="display:block;width:100%;margin-top:0.4rem;padding:0.65rem 0.75rem;border:1px solid #7a8fa3;background:#f7fafc;font:inherit;"
+    />
+  </label>
+
+  <div class="am-glossary" id="am-glossary">
+    {
+      words.map((w) => (
+        <details data-term={`${w.term} ${w.def}`.toLocaleLowerCase("pl-PL")}>
+          <summary>{w.term}</summary>
+          <p>{w.def}</p>
+        </details>
+      ))
+    }
+  </div>
+
+  <div class="am-prose">
+    <p>
+      Jak słowo ze slajdu tu nie wchodzi, zapisz je i poproś o tłumaczenie przy jednym wierszu tabeli. Hasło bez wiersza jest kolejnym hasłem.
+    </p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var q = document.getElementById("am-word-q");
+      var items = Array.prototype.slice.call(document.querySelectorAll("#am-glossary details"));
+      q.addEventListener("input", function () {
+        var query = (q.value || "").toLocaleLowerCase("pl-PL").trim();
+        items.forEach(function (el) {
+          var hay = el.getAttribute("data-term") || "";
+          el.style.display = !query || hay.indexOf(query) !== -1 ? "" : "none";
+        });
+      });
+    })();
+  </script>
+</Syllabus>

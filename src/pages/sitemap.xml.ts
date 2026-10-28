@@ -7,6 +7,8 @@ export const GET: APIRoute = async () => {
   const urls = [
     `${origin}/`,
     `${origin}/wyklad/`,
+    `${origin}/lista/`,
+    `${origin}/slowa/`,
     `${origin}/szkola/`,
     `${origin}/poczta/`,
     `${origin}/prywatnosc/`,
