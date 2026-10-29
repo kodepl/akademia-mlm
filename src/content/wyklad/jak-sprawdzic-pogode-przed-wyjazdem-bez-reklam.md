@@ -10,7 +10,6 @@ category: "Spotkanie"
 tags: ["pogoda", "aplikacja", "rano"]
 readingTime: "6 min"
 image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&h=900&q=80"
-imageCaption: "Okno sali, motyw z Unsplash."
 ---
 
 Kiedy stajemy przed drzwiami, mały dreszczyk emocji towarzyszy nam, gdy myślimy o tym, co przyniesie dzień. Wyjazd w plener z grupą, to nie tylko okazja do integracji, ale też moment, gdy warto zwrócić uwagę na pogodę. Nie każdy ma ochotę na szukanie prognozy w aplikacjach, które obfitują w reklamy. A przecież wystarczy rzut oka na prostą stronę.
