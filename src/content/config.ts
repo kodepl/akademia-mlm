@@ -13,7 +13,8 @@ const wyklad = defineCollection({
     readingTime: z.string(),
     image: z.string(),
     imageCaption: z.string(),
-    numer: z.string().regex(/^(0[1-9]|1[0-9]|20)$/),
+    // 01–99 — kampanie PBN dokładają kolejne numery poza kursem 01–20
+    numer: z.string().regex(/^(0[1-9]|[1-9][0-9])$/),
   }),
 });
 
